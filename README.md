@@ -71,6 +71,18 @@ Start Client:
 cd ../client
 npm start
 
+🛠 Architecture Overview
+
+Frontend: React.js (UI for Search, Login, Booking)
+Backend: Node.js + Express.js (REST APIs)
+Database: MongoDB
+Communication: Axios (API Calls)
+
+📌 Future Enhancements
+
+Online payment integration
+Email notifications
+
 👩‍💻 Author
 
 Yasaswi Challa
