@@ -83,7 +83,7 @@ const NewFlight = () => {
                 
                 <span className='newFlightSpan1'>
                   <div className="form-floating mb-3">
-                          <input type="text" className="form-control" id="floatingInputemail" value={flightName} onChange={(e)=> setFlightName(e.target.value)} disabled />
+                          <input type="text" className="form-control" id="floatingInputemail" value={flightName} onChange={(e)=> setFlightName(e.target.value)} />
                           <label htmlFor="floatingInputemail">Flight Name</label>
                     </div>
                     <div className="form-floating mb-3">

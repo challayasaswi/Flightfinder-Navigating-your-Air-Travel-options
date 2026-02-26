@@ -1,63 +1,125 @@
-.BookFlightPage{
+.BookFlightPage {
     width: 100%;
-    height: fit-content;
-    padding-top: 15vh;
-    padding-bottom: 5vh;
+    min-height: 100vh;
+    padding: 12vh 0 5vh 0;
     display: flex;
     justify-content: center;
+    background-color: #f4f7f9;
 }
 
-.BookingFlightPageContainer{
-    width: 44%;
-    background-color: rgba(242, 245, 247, 0.753);
-    padding: 2vh 2%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 0.7rem;
+.BookingFlightPageContainer {
+    width: 48%;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 1rem;
+    height: auto;
 }
-.BookingFlightPageContainer h2{
-    margin: 0;
-    margin-bottom: 5vh;
+
+.flight-info-summary {
+    display: flex;
+    justify-content: space-between;
+    background: #e9ecef;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.flight-info-summary p { margin: 0; color: #366878; }
+
+.booking-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.span3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* SEAT SELECTION STYLES */
+.seat-selection-section {
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+}
+
+.legend-item { display: flex; align-items: center; gap: 8px; }
+.legend-box { width: 15px; height: 15px; border-radius: 3px; border: 1px solid #ccc; }
+.legend-box.available { background: white; }
+.legend-box.selected { background: #28a745; }
+.legend-box.booked { background: #dc3545; }
+
+.seat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.seat-row {
+    display: flex;
+    gap: 12px;
+}
+
+.seat {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #366878;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    background: white;
+}
+
+.seat:hover:not(.booked) { background: #e3f2fd; }
+.seat.selected { background: #28a745 !important; color: white; border-color: #1e7e34; }
+.seat.booked { background: #dc3545 !important; color: white; border-color: #bd2130; cursor: not-allowed; }
+
+/* Airplane Aisle */
+.seat-row .seat:nth-child(2) { margin-right: 25px; }
+
+/* PASSENGER LIST */
+.scrollable-passenger-list {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.new-passenger { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; }
+.new-passenger h4 { font-size: 0.95rem; color: #366878; margin-bottom: 10px; }
+.new-passenger-inputs { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+
+.booking-summary-footer {
+    border-top: 2px solid #f4f7f9;
+    padding-top: 20px;
     text-align: center;
-    color: rgb(54, 104, 120);
-}
-.BookingFlightPageContainer p{
-    margin: 0;
-    margin-bottom: 5px;
-    color: rgb(54, 104, 120);
-}
-.BookingFlightPageContainer p b{
-    font-weight: 600;
-}
-.BookingFlightPageContainer span{
-    display: grid;
-    grid-template-columns: 64% 33%;
-    gap: 3%;
-}
-.BookingFlightPageContainer .span3{
-    display: grid;
-    grid-template-columns: 31.3% 31.3% 31.3%;
-    gap: 3%;
-}
-.BookingFlightPageContainer button{
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 25px;
-}
-.BookingFlightPageContainer li{
-    font-size: 0.8rem;
 }
 
-.new-passenger h4{
-    font-size: 1rem;
-    font-weight: 600;
-    color: rgb(48, 91, 114);
-}
+.booking-summary-footer h6 { font-size: 1.2rem; margin-bottom: 15px; }
 
-.new-passenger-inputs{
-    display: grid;
-    grid-template-columns: 67% 30%;
-    gap: 3%;
-}
-.new-passenger-inputs select{
-    padding-left: 12px;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #366878; border-radius: 10px; }

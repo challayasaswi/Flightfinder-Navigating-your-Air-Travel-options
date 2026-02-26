@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     approval: {type: String, default: 'approved'}
 });
+
 const flightSchema = new mongoose.Schema({
     flightName: { type: String, required: true },
     flightId: { type: String, required: true },
@@ -15,25 +16,29 @@ const flightSchema = new mongoose.Schema({
     departureTime: { type: String, required: true },
     arrivalTime: { type: String, required: true },
     basePrice: { type: Number, required: true },
-    totalSeats: { type: Number, required: true }
+    totalSeats: { type: Number, required: true },
+    // Tracks which specific seats are taken (e.g., ["E-1", "B-5"])
+    bookedSeats: { type: [String], default: [] } 
 });
+
 const bookingSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    flight: { type: mongoose.Schema.Types.ObjectId, ref: 'Flight', required: true },
+    user: { type: String, required: true }, // Changed to String to match your localStorage userId usage
+    flight: { type: String, required: true },
     flightName: {type: String, required: true},
     flightId: {type: String},
     departure: {type: String},
     destination: {type: String},
     email: {type: String},
     mobile: {type: String},
-    seats: {type: String},
+    // This field is critical for the PDF Ticket
+    seats: {type: String}, 
     passengers: [{
         name: { type: String },
         age: { type: Number }
       }],
     totalPrice: { type: Number },
     bookingDate: { type: Date, default: Date.now },
-    journeyDate: { type: Date },
+    journeyDate: { type: String }, 
     journeyTime: { type: String },
     seatClass: { type: String},
     bookingStatus: {type: String, default: "confirmed"}
